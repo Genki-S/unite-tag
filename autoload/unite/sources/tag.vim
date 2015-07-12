@@ -318,8 +318,8 @@ function! s:taglist_filter(input)
     \   'abbr':    printf('%s  %s  %s',
     \                  s:truncate(v:val.name,
     \                     g:unite_source_tag_max_name_length, 15, '..'),
-    \                  s:truncate('@'.fnamemodify(
-    \                     v:val.filename, ':.'),
+    \                  s:truncate('@'.substitute(fnamemodify(
+    \                     v:val.filename, ':.'), '/usr/local.*/gems/', '...', ''),
     \                     g:unite_source_tag_max_fname_length, 10, '..'),
     \                  'pat:' .  matchstr(v:val.cmd,
     \                         '^[?/]\\^\\?\\zs.\\{-1,}\\ze\\$\\?[?/]$')
