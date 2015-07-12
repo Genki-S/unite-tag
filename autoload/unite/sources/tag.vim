@@ -314,7 +314,7 @@ function! s:taglist_filter(input)
     endif
 
     let taglist = map(taglist(a:input), "{
-    \   'word':    v:val.name,
+    \   'word':    v:val.name . ' ' . fnamemodify(v:val.filename, ':.'),
     \   'abbr':    printf('%s  %s  %s',
     \                  s:truncate(v:val.name,
     \                     g:unite_source_tag_max_name_length, 15, '..'),
